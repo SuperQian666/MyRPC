@@ -1,6 +1,5 @@
-package pers.config;
+package pers.qy.config;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

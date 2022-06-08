@@ -1,6 +1,6 @@
-package pers.remoting.transport;
+package pers.qy.remoting.transport;
 
-import pers.remoting.dataformat.RpcRequest;
+import pers.qy.remoting.dataformat.RpcRequest;
 
 /**
  * @author whisper

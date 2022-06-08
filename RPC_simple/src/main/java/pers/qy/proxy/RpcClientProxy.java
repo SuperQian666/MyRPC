@@ -1,10 +1,10 @@
-package pers.proxy;
+package pers.qy.proxy;
 
 import lombok.AllArgsConstructor;
-import pers.config.RpcServiceConfig;
-import pers.remoting.dataformat.RpcRequest;
-import pers.remoting.dataformat.RpcResponse;
-import pers.remoting.transport.RpcRequestTransport;
+import pers.qy.config.RpcServiceConfig;
+import pers.qy.remoting.dataformat.RpcRequest;
+import pers.qy.remoting.dataformat.RpcResponse;
+import pers.qy.remoting.transport.RpcRequestTransport;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
