@@ -9,6 +9,8 @@ import java.net.InetSocketAddress;
 public class ServiceRegistryImpl implements ServiceRegistry{
     @Override
     public void registerService(String serviceName, InetSocketAddress inetSocketAddress) {
+        String servicePath = Curatorutil.ZK_ROOT_PATH + "/" + serviceName + inetSocketAddress.toString();
+        Curatorutil.createPersistentNode(Curatorutil.getZkClient(), servicePath);
 
     }
 }
