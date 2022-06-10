@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>RPC_simple</module>
+        <module>Server_Demo</module>
     </modules>
 
     <properties>
@@ -24,6 +25,8 @@
         <netty.version>4.1.42.Final</netty.version>
         <!--curator-->
         <curator-version>4.2.0</curator-version>
+        <!--protobuf-->
+        <protostuff-version>1.7.2</protostuff-version>
     </properties>
 
     <dependencies>
@@ -64,6 +67,18 @@
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
             <version>${curator-version}</version>
+        </dependency>
+
+        <!-- protostuff -->
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff-version}</version>
         </dependency>
     </dependencies>
 </project>
