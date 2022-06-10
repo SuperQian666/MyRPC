@@ -1,9 +1,12 @@
 package pers.qy.proxy;
 
 import lombok.AllArgsConstructor;
+import pers.qy.common.RpcException;
+import pers.qy.common.enums.RpcErrorMsgEnum;
+import pers.qy.common.enums.RpcResponseEnum;
 import pers.qy.config.RpcServiceConfig;
-import pers.qy.remoting.dataformat.RpcRequest;
-import pers.qy.remoting.dataformat.RpcResponse;
+import pers.qy.remoting.dataFormat.RpcRequest;
+import pers.qy.remoting.dataFormat.RpcResponse;
 import pers.qy.remoting.transport.RpcRequestTransport;
 
 import java.lang.reflect.InvocationHandler;
@@ -24,6 +27,8 @@ public class RpcClientProxy implements InvocationHandler {
      */
     private RpcRequestTransport rpcRequestTransport;
     private RpcServiceConfig rpcServiceConfig;
+
+    private static final String INTERFACE_NAME = "interfaceName";
 
     /**
      * get proxy
@@ -46,15 +51,21 @@ public class RpcClientProxy implements InvocationHandler {
                 .group(rpcServiceConfig.getGroup())
                 .build();
         //send request base on netty 待修改
+
         RpcResponse<Object> response = (RpcResponse<Object>) rpcRequestTransport.sendRpcRequest(request);
         this.check(request, response);
         return response.getData();
-        //return null;
     }
 
     public void check(RpcRequest request, RpcResponse<Object> response) {
         if (response == null) {
-            //throw exception
+            throw new RpcException(RpcErrorMsgEnum.SERVICE_INVOCATION_FAILURE, INTERFACE_NAME + ":" + request.getInterfaceName());
+        }
+        if(request.getRequestId() != response.getRequestId()) {
+            throw new RpcException(RpcErrorMsgEnum.REQUEST_NOT_MATCH_RESPONSE, INTERFACE_NAME + ":" + request.getInterfaceName());
+        }
+        if(response.getCode() == null || response.getCode() != RpcResponseEnum.SUCCESS.getCode()) {
+            throw new RpcException(RpcErrorMsgEnum.SERVICE_INVOCATION_FAILURE, INTERFACE_NAME + ":" + request.getInterfaceName());
         }
     }
 }
