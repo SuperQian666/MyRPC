@@ -1,6 +1,7 @@
 package pers.qy.loadBalance;
 
-import pers.qy.remoting.dataformat.RpcRequest;
+import pers.qy.remoting.dataFormat.RpcRequest;
+import pers.qy.utils.extension.SPI;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @Date 2022/06/09
  *
  */
+@SPI
 public interface LoadBalance {
 
     /**

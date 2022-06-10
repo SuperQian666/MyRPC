@@ -1,7 +1,7 @@
 package pers.qy.loadBalance.LoadBalanceImpl;
 
 import pers.qy.loadBalance.AbstractLoadBalance;
-import pers.qy.remoting.dataformat.RpcRequest;
+import pers.qy.remoting.dataFormat.RpcRequest;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

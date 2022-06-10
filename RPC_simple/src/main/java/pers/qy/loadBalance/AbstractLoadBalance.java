@@ -1,6 +1,6 @@
 package pers.qy.loadBalance;
 
-import pers.qy.remoting.dataformat.RpcRequest;
+import pers.qy.remoting.dataFormat.RpcRequest;
 
 import java.util.List;
 
