@@ -1,4 +1,4 @@
-package pers.qy.remoting.dataformat;
+package pers.qy.remoting.dataFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
